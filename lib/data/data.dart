@@ -14,10 +14,10 @@ class Flower{
 }
 
 final allflowers = [
-  Flower(imageUrl: 'assets/flower1.jpg', type: FlowerType.land),
-  Flower(imageUrl: 'assets/flower2.jpg', type: FlowerType.land),
-  Flower(imageUrl: 'assets/cactus.jpg', type: FlowerType.desert),
-  Flower(imageUrl: 'assets/catus2.jpg', type: FlowerType.desert)
+  Flower(imageUrl: 'assets/rose.png', type: FlowerType.land),
+  Flower(imageUrl: 'assets/daisy.png', type: FlowerType.land),
+  Flower(imageUrl: 'assets/cactus2.png', type: FlowerType.desert),
+  Flower(imageUrl: 'assets/cactus3.png', type: FlowerType.desert)
 
 
 ];

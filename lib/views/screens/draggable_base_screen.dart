@@ -29,12 +29,54 @@ class _DraggableBaseScreenState extends State<DraggableBaseScreen> {
           ),
         ),
         body: Center(
-          child: buildOrigin(),
+          child: Column(
+            children: [
+              buildOrigin(),
+              buildTarget(context , text: 'Flowers', acceptType: FlowerType.land),
+            ],
+          ),
         ),
       );
 
+// Widget buildTargets(BuildContext context) {
+//  return buildTarget(context, text: 'Flowers', acceptType: FlowerType.land);
+
+// }
+
+Widget buildTarget(
+  BuildContext context , {
+    required String text,
+    required FlowerType acceptType
+
+  }
+) => 
+CircleAvatar(
+  radius: 80,
+  child:   DragTarget<Flower>(builder: (context, candidateData, rejectedData) {
+    
+  
+    return Center(
+  
+      child: Text(text, style: const TextStyle(color: Colors.white , fontSize: 24),),
+      
+  
+    );
+    
+    
+  
+  },
+  onWillAccept: (data)  => true,
+  onAccept: (data) {
+    if(data.type == acceptType) {
+    
+    }
+  },
+  ),
+);
+
   Widget buildOrigin() {
     return Stack(
+      alignment: Alignment.center,
       children: all
           .map((flower) => DraggableWidgetScreen(
                 flower: flower,

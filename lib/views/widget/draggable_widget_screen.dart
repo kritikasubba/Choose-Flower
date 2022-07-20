@@ -17,6 +17,7 @@ class DraggableWidgetScreen extends StatelessWidget {
       data: flower,
       feedback: buildImage(),
       child: buildImage() ,
+      childWhenDragging: Container(height: size),
     );
 
   
@@ -24,6 +25,9 @@ class DraggableWidgetScreen extends StatelessWidget {
   }
   Widget buildImage() {
     return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(32) ,
+      color: Colors.red
+      ),
       height: size,
       width: size,
       child: Image.asset(flower.imageUrl),
