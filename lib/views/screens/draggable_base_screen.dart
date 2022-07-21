@@ -1,4 +1,5 @@
 import 'package:draggable/data/data.dart';
+import 'package:draggable/utility/utils.dart';
 
 import 'package:draggable/views/widget/draggable_widget_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,7 @@ class _DraggableBaseScreenState extends State<DraggableBaseScreen> {
             children: [
               buildOrigin(),
               buildTarget(context , text: 'Flowers', acceptType: FlowerType.land),
+            
             ],
           ),
         ),
@@ -68,7 +70,14 @@ CircleAvatar(
   onWillAccept: (data)  => true,
   onAccept: (data) {
     if(data.type == acceptType) {
+      Utils.showFlushBar(context, text: 'This is correct 👌', color: Colors.red);
+      setState(() {
+        all.removeWhere((flower) => flower.imageUrl == data.imageUrl);
+      });
     
+    }
+    else {
+      Utils.showFlushBar(context, text: 'Try Again! 😜', color: Colors.green);
     }
   },
   ),
