@@ -28,8 +28,8 @@ class Utils {
   static Future _show(BuildContext context, Flushbar newFlushBar) async {
     await Future.wait(flushBars.map((flushBar) => flushBar.dismiss()).toList());
     flushBars.clear();
-
-
+//  if (!mounted) return;
+newFlushBar.show(context);
     flushBars.add(newFlushBar);
   }
 }
